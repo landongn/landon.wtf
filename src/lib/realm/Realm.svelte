@@ -5,6 +5,7 @@
 	let has_started = false;
 	let last_tick_ms = 0;
 	let is_running = false;
+
 	export let space = 'home';
 
 	function onStart() {

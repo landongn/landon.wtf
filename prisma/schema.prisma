@@ -19,4 +19,12 @@ model Profile {
   created_at    DateTime @default(now())
   avatar_url    String?
   friendly_name String?
+  Game          Game[]
+}
+
+model Game {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique
+  creator    Profile? @relation(fields: [creator_id], references: [id])
+  creator_id Int?
 }

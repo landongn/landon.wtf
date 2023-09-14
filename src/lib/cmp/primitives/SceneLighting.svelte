@@ -5,9 +5,9 @@
 
 	interface $$Props extends GameObject {
 		lights: string[]; // direction, hemi, ambient
-		intensity: 1.0;
-		showGizmo: false;
-		active: true;
+		intensity: number;
+		showGizmo: boolean;
+		active: boolean;
 	}
 
 	export let lights: string[];

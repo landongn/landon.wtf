@@ -1,13 +1,27 @@
 <script lang="ts">
 	import SceneLighting from '$lib/cmp/primitives/SceneLighting.svelte';
-	import T from '@threlte/core/dist/components/T/T.svelte';
+	import { T } from '@threlte/core';
+	import type { Group } from 'three';
 	import { generateUUID } from 'three/src/math/MathUtils';
+	import type { GameObject } from '..';
 
 	export let space: string = 'IndexScene';
-
 	export let cmpUUID: string = generateUUID();
+	let root_object: Group | undefined;
+	export let name = 'IndexScene';
+
+	interface $$Props extends GameObject {
+		root_object: Group;
+		space: string;
+		uuid: string;
+		name: string;
+	}
+
+	function Awake(ref) {
+		root_object = ref.Group;
+	}
 </script>
 
-<T.Group name="IndexScene">
-	<SceneLighting active={true} lights={['direction']} id={cmpUUID} intensity={2.0} />
+<T.Group {...$$props} on:create={Awake}>
+	<SceneLighting {...$$restProps} />
 </T.Group>

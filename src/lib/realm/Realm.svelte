@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SceneLoader from '$lib/cmp/util/SceneLoader.svelte';
 	import { useFrame, type ThrelteContext } from '@threlte/core';
 
 	let has_started = false;
@@ -20,3 +21,7 @@
 		has_started ? (is_running ? onUpdate(ctx, delta) : void 0) : onStart();
 	});
 </script>
+
+<slot name="loader">
+	<SceneLoader />
+</slot>

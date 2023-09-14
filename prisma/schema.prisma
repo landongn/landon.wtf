@@ -1,0 +1,22 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  previewFeatures = ["multiSchema"]
+  provider        = "prisma-client-js"
+}
+
+model Profile {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  username      String   @unique
+  is_admin      Boolean  @default(false)
+  is_banned     Boolean  @default(false)
+  updated_at    DateTime @updatedAt
+  created_at    DateTime @default(now())
+  avatar_url    String?
+  friendly_name String?
+}

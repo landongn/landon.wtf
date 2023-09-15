@@ -1,12 +1,45 @@
+<script lang="ts" context="module">
+	interface SpaceEvents {
+		transitionIn?(
+			context: ThrelteContext,
+			duration?: number,
+			delay?: number,
+			callback?: () => Promise<void>
+		): Promise<void>;
+		transitionOut?(
+			context: ThrelteContext,
+			duration?: number,
+			delay?: number,
+			callback?: () => Promise<void>
+		): Promise<void>;
+	}
+
+	interface SpaceProps {
+		name: string;
+		parent?: Space | null;
+		GameObjectRoot?: GameObject[];
+		has_started?: boolean;
+		is_running?: boolean;
+		last_tick_ms?: number;
+	}
+
+	interface Space extends SpaceProps, SpaceEvents {}
+</script>
+
 <script lang="ts">
-	import SceneLoader from '$lib/cmp/util/SceneLoader.svelte';
-	import { useFrame, type ThrelteContext } from '@threlte/core';
+	import type { GameObject } from '$lib/cmp/primitives/types';
+	import { T, useFrame, type ThrelteContext } from '@threlte/core';
+	import IndexScene from './spaces/IndexScene.svelte';
+
+	interface $$Props extends SpaceProps {}
+	interface $$Events extends SpaceEvents {}
 
 	let has_started = false;
 	let last_tick_ms = 0;
 	let is_running = false;
 
-	export let space = 'home';
+	export const name = 'home';
+	export const parent = null;
 
 	function onStart() {
 		has_started = true;
@@ -23,6 +56,8 @@
 	});
 </script>
 
-<slot name="loader">
-	<SceneLoader />
-</slot>
+{#if name == 'home'}
+	<T.Group on:create={(e) => console.log('indexScene Awake', e)}>
+		<IndexScene id={'IndexSceneInstance'} name="home" tags={['spaces']} />
+	</T.Group>
+{/if}

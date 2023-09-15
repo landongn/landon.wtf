@@ -1,4 +1,4 @@
-import { currentWritable } from '@threlte/core';
+import { currentWritable, type CurrentWritable } from '@threlte/core';
 
 export const SceneList = currentWritable({});
 export const RendererState = currentWritable({
@@ -11,3 +11,14 @@ export const RendererState = currentWritable({
 });
 
 export const GameObjects = currentWritable([]);
+
+export interface EditorRuntimeState {
+	visible: boolean;
+	state: [];
+	max_history: 100;
+}
+export const EditorState: CurrentWritable<EditorRuntimeState> = currentWritable({
+	visible: true,
+	state: [],
+	max_history: 100
+});

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import SceneLighting from '$lib/cmp/primitives/SceneLighting.svelte';
 	import { T } from '@threlte/core';
 	import type { Group } from 'three';
 	import { generateUUID } from 'three/src/math/MathUtils';
@@ -22,6 +21,6 @@
 	}
 </script>
 
-<T.Group {...$$props} on:create={Awake}>
-	<SceneLighting {...$$restProps} />
+<T.Group on:create={Awake}>
+	<!-- <SceneLighting lights={['direction']} intensity={1.2} {...$$restProps} /> -->
 </T.Group>

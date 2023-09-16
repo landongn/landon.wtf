@@ -47,7 +47,7 @@
 						name="mainCamera"
 						makeDefault
 						fov={80}
-						position={[0, 0, 100]}
+						position={[0, 0, 5]}
 						on:create={(ctx) => (mainCamera = ctx.ref)}
 					>
 						<OrbitControls

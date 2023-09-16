@@ -28,14 +28,15 @@
 
 <script lang="ts">
 	import type { GameObject } from '$lib/cmp/primitives/types';
-	import { T, useFrame, type ThrelteContext } from '@threlte/core';
+	import { useFrame, type ThrelteContext } from '@threlte/core';
+	import { interactivity, transitions } from '@threlte/extras';
 	import IndexScene from './spaces/IndexScene.svelte';
 
 	interface $$Props extends SpaceProps {}
 	interface $$Events extends SpaceEvents {}
 
 	let has_started = false;
-	let last_tick_ms = 0;
+
 	let is_running = false;
 
 	export const name = 'home';
@@ -47,17 +48,14 @@
 
 	function onDestroy() {}
 
-	function onUpdate(scene: ThrelteContext, dt: number) {
-		last_tick_ms = dt;
-	}
+	function onUpdate(scene: ThrelteContext, dt: number) {}
 
 	useFrame((ctx: ThrelteContext, delta: number): void => {
 		has_started ? (is_running ? onUpdate(ctx, delta) : void 0) : onStart();
 	});
+
+	transitions();
+	interactivity();
 </script>
 
-{#if name == 'home'}
-	<T.Group on:create={(e) => console.log('indexScene Awake', e)}>
-		<IndexScene id={'IndexSceneInstance'} name="home" tags={['spaces']} />
-	</T.Group>
-{/if}
+<IndexScene />

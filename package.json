@@ -70,6 +70,7 @@
 		"@tsconfig/svelte": "^5.0.2",
 		"@tweakpane/core": "^2.0.1",
 		"@types/three": "^0.156.0",
+		"@yushijinhun/three-minifier-rollup": "^0.4.0",
 		"consola": "^3.2.3",
 		"mousetrap": "^1.6.5",
 		"nact": "^7.6.2",

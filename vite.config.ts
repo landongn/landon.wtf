@@ -1,11 +1,12 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { threeMinifier } from '@yushijinhun/three-minifier-rollup';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [threeMinifier(), sveltekit()],
 
 	ssr: {
-		noExternal: ['three']
+		noExternal: ['three', 'threlte']
 	},
 
 	test: {

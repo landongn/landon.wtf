@@ -13,6 +13,6 @@ const trace = createConsola({
 });
 trace.wrapAll();
 
-trace.box('Welcome to Tabletop');
+trace.box('what the fuck, landon??');
 
 export default trace;

@@ -37,7 +37,7 @@
 	});
 
 	const editorPositionSpring = spring(
-		{ x: 0, y: 0, z: 0, opacity: 1 },
+		{ x: 0, y: 0, z: 0, opacity: 0 },
 		{ damping: 0.235, precision: 0.8, stiffness: 0.1 }
 	);
 

@@ -28,8 +28,9 @@
 
 <script lang="ts">
 	import type { GameObject } from '$lib/cmp/primitives/types';
-	import { useFrame, type ThrelteContext } from '@threlte/core';
-	import { interactivity, transitions } from '@threlte/extras';
+	import { T, useFrame, type ThrelteContext } from '@threlte/core';
+	import { OrbitControls, interactivity, transitions } from '@threlte/extras';
+	import { MOUSE } from 'three';
 	import IndexScene from './spaces/IndexScene.svelte';
 
 	interface $$Props extends SpaceProps {}
@@ -57,5 +58,15 @@
 	transitions();
 	interactivity();
 </script>
+
+<T.Group name="mainCameraControlArm" transform={[0, 0, 0]}>
+	<T.PerspectiveCamera name="mainCamera" makeDefault fov={80} position={[0, 0, 5]}>
+		<OrbitControls
+			enableDamping={true}
+			enableRotate={false}
+			mouseButtons={{ RIGHT: MOUSE.PAN, MIDDLE: MOUSE.DOLLY }}
+		/>
+	</T.PerspectiveCamera>
+</T.Group>
 
 <IndexScene />

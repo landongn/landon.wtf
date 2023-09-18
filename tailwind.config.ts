@@ -17,7 +17,14 @@ const config = {
 	},
 	plugins: [
 		// 4. Append the Skeleton plugin (after other plugins)
-		skeleton
+		skeleton({
+			themes: {
+				preset: [
+					// Enable 'enhancements' per each registered theme:
+					{ name: 'gold-nouveau', enhancements: true }
+				]
+			}
+		})
 	]
 } satisfies Config;
 

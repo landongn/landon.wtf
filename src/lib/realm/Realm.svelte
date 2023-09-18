@@ -37,7 +37,6 @@
 	interface $$Events extends SpaceEvents {}
 
 	let has_started = false;
-
 	let is_running = false;
 
 	export const name = 'home';
@@ -60,11 +59,11 @@
 </script>
 
 <T.Group name="mainCameraControlArm" transform={[0, 0, 0]}>
-	<T.PerspectiveCamera name="mainCamera" makeDefault fov={80} position={[0, 0, 5]}>
+	<T.PerspectiveCamera name="mainCamera" makeDefault fov={50} position={[0, 0, 5]}>
 		<OrbitControls
 			enableDamping={true}
-			enableRotate={false}
-			mouseButtons={{ RIGHT: MOUSE.PAN, MIDDLE: MOUSE.DOLLY }}
+			enableRotate={true}
+			mouseButtons={{ RIGHT: MOUSE.PAN, MIDDLE: MOUSE.DOLLY, LEFT: MOUSE.ROTATE }}
 		/>
 	</T.PerspectiveCamera>
 </T.Group>

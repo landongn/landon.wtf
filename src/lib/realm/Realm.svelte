@@ -28,9 +28,11 @@
 
 <script lang="ts">
 	import type { GameObject } from '$lib/cmp/primitives/types';
+	import { allGameObjects } from '$lib/stores/GameObjects';
+	import { Toast } from '@skeletonlabs/skeleton';
 	import { T, useFrame, type ThrelteContext } from '@threlte/core';
-	import { OrbitControls, interactivity, transitions } from '@threlte/extras';
-	import { MOUSE } from 'three';
+	import { HTML, interactivity, transitions } from '@threlte/extras';
+	import FancyCam from '../../modules/fancy-cam/FancyCam.svelte';
 	import IndexScene from './spaces/IndexScene.svelte';
 
 	interface $$Props extends SpaceProps {}
@@ -58,14 +60,25 @@
 	interactivity();
 </script>
 
-<T.Group name="mainCameraControlArm" transform={[0, 0, 0]}>
-	<T.PerspectiveCamera name="mainCamera" makeDefault fov={50} position={[0, 0, 5]}>
-		<OrbitControls
-			enableDamping={true}
-			enableRotate={true}
-			mouseButtons={{ RIGHT: MOUSE.PAN, MIDDLE: MOUSE.DOLLY, LEFT: MOUSE.ROTATE }}
-		/>
+<T.Group
+	name="cameraControls"
+	transform={[0, 0, 0]}
+	on:create={(ref) => {
+		allGameObjects.update((v) => {
+			v.push(ref.ref);
+			v = v;
+			return v;
+		});
+	}}
+>
+	<T.PerspectiveCamera name="mainCamera" makeDefault fov={50} position={[0, 0, 5]} let:ref>
+		<FancyCam camera={ref} />
 	</T.PerspectiveCamera>
 </T.Group>
 
 <IndexScene />
+
+<!-- lets build a little UI -->
+<HTML transform>
+	<Toast position="tl" />
+</HTML>

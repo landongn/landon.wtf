@@ -19,10 +19,10 @@
 	<title>landon.wtf</title>
 </svelte:head>
 
-<div class="w-full h-full fixed bg-white">
+<div class="w-full h-full fixed">
 	<Canvas>
 		<World>
-			<Realm name={'realm'} />
+			<Realm name={'home'} />
 		</World>
 	</Canvas>
 </div>

@@ -1,24 +1,27 @@
 <script lang="ts">
-	import { T, useThrelte } from '@threlte/core';
-	import { Grid } from '@threlte/extras';
+	import { T } from '@threlte/core';
 
+	import Waves from '$lib/cmp/background/waves.svelte';
 	import type { Behavior } from '$lib/cmp/primitives/types';
 	import trace from '$lib/logger';
-	import { Vector3, type Group, type Object3DEventMap } from 'three';
+	import { allGameObjects } from '$lib/stores/GameObjects';
+	import { Grid } from '@threlte/extras';
+	import type { Group, Object3DEventMap } from 'three';
 
 	interface $$Events extends Behavior {}
 
 	const Awake = (e: { ref: Group<Object3DEventMap> }) => {
 		trace.info('indexScene Awake internally', e);
+		allGameObjects.update((v) => {
+			v.push(e.ref);
+			v = v;
+			return v;
+		});
 	};
-
-	const ctx = useThrelte();
-	ctx.camera.current.lookAt(new Vector3(0, 0, 0));
-	ctx.camera.current.position.set(0, 10, 10);
 </script>
 
-<T.Group on:create={Awake}>
-	<T.DirectionalLight intensity={0.5} color={0xffffff} />
+<T.Group name="indexSceneRootGroup" on:create={Awake}>
+	<T.DirectionalLight intensity={0.9} color={0xffffff} />
 	<T.HemisphereLight intensity={1.0} color={0x0feeff} groundColor={0x111111} />
 	<Grid
 		cellColor={'#d1ffff'}
@@ -32,3 +35,4 @@
 		infiniteGrid={true}
 	/>
 </T.Group>
+<Waves />

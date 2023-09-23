@@ -1,5 +1,3 @@
-import type { Quaternion, Vector3 } from 'three';
-
 export interface Tag {
 	[key: string]: string;
 }
@@ -211,13 +209,6 @@ export interface Behavior {
 }
 export interface GameObject {
 	// position of the object in 3d space.
-	position: Vector3;
-
-	// rotation in Euler or Quaternion types
-	rotation: Euler | Quaternion;
-
-	// scale in Vector3
-	scale: Vector3;
 
 	// UUID/GUID of the component instance
 	id: string;
@@ -227,4 +218,6 @@ export interface GameObject {
 
 	// tagging elements for render layers and quick recall by threlte
 	tags: string[];
+
+	children: any[];
 }

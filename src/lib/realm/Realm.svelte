@@ -79,6 +79,6 @@
 <IndexScene />
 
 <!-- lets build a little UI -->
-<HTML transform>
+<HTML>
 	<Toast position="tl" />
 </HTML>

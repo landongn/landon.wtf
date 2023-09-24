@@ -4,7 +4,6 @@
 		BufferAttribute,
 		BufferGeometry,
 		DoubleSide,
-		DynamicDrawUsage,
 		Mesh,
 		MeshPhongMaterial,
 		PointLight,
@@ -97,10 +96,10 @@
 	g_buffer.setIndex(indices);
 	const positionBuffer = new Float32Array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 	const g_bufferPos = new BufferAttribute(positionBuffer, 3);
-	g_bufferPos.setUsage(DynamicDrawUsage);
+
 	g_buffer.setAttribute('position', g_bufferPos);
 	const planeMesh = new Mesh(g_buffer, material);
-
+	planeMesh.position.set(0, 0, 0);
 	let i_pointLight = new PointLight(0xffffff, 0.9);
 
 	// @ts-ignore
@@ -132,10 +131,8 @@
 				planeMesh.geometry.attributes.position.array[i + 1] = v.y;
 			}
 		}
-
 		planeMesh.geometry.computeVertexNormals();
 		planeMesh.geometry.attributes.position.needsUpdate = true;
-		$controls;
 	});
 </script>
 

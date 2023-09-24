@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
 
-	import Waves from '$lib/cmp/background/waves.svelte';
 	import type { Behavior } from '$lib/cmp/primitives/types';
 	import trace from '$lib/logger';
 	import { allGameObjects } from '$lib/stores/GameObjects';
-	import { Grid } from '@threlte/extras';
-	import type { Group, Object3DEventMap } from 'three';
+	import { Grid, RoundedBoxGeometry } from '@threlte/extras';
+	import { Collider } from '@threlte/rapier';
 
 	interface $$Events extends Behavior {}
 
-	const Awake = (e: { ref: Group<Object3DEventMap> }) => {
+	const Awake = (e) => {
 		trace.info('indexScene Awake internally', e);
+
 		allGameObjects.update((v) => {
 			v.push(e.ref);
 			v = v;
@@ -35,4 +35,12 @@
 		infiniteGrid={true}
 	/>
 </T.Group>
-<Waves />
+
+<T.Group name="Floor" position={[0, 1, 0]}>
+	<Collider>
+		<T.Mesh>
+			<RoundedBoxGeometry args={[4, 1, 1]} />
+			<T.MeshPhongMaterial />
+		</T.Mesh>
+	</Collider>
+</T.Group>

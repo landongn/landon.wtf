@@ -18,10 +18,9 @@ If a post cannot be a single markdown file, it is too complicated. This keeps th
 
 ## The loop
 
-1. Open the editor.
-2. Write in markdown.
-3. Save the file into `src/routes/posts/<slug>/+page.md`.
-4. Ship.
+1. Create a new folder under `src/routes/posts/<slug>/`.
+2. Write the markdown in `+page.md`.
+3. Ship.
 
 ## The reading side
 

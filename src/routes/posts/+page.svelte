@@ -61,7 +61,7 @@
 				{/each}
 			{:else}
 				<div class="dos-panel text-sm text-[var(--dos-muted)]">
-					No posts yet. Spin up a draft in the editor and save it into
+					No posts yet. Add a markdown file at
 					<code>src/routes/posts/&lt;slug&gt;/+page.md</code>.
 				</div>
 			{/if}

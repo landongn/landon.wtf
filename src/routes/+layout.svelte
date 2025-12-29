@@ -7,11 +7,11 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<meta name="theme-color" content="#0b0f10" />
+	<meta name="theme-color" content="#000000" />
 </svelte:head>
 
 <div class="min-h-screen px-4 py-6 md:px-8">
-	<div class="mx-auto flex w-full max-w-6xl flex-col gap-6">
+	<div class="mx-auto flex w-full max-w-[80vw] flex-col gap-6">
 		<header class="animate-boot">
 			<div class="dos-window overflow-hidden">
 				<div class="dos-titlebar">
@@ -27,7 +27,6 @@
 					<nav class="flex flex-wrap gap-2">
 						<a class="dos-button" href="/">Home</a>
 						<a class="dos-button" href="/posts">Posts</a>
-						<a class="dos-button" href="/editor">Editor</a>
 						<a
 							class="dos-button"
 							href="https://bsky.app/profile/landon.wtf"

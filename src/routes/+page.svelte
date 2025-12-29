@@ -32,14 +32,13 @@
 				</p>
 				<div class="flex flex-wrap gap-2">
 					<a class="dos-button" href="/posts">Read posts</a>
-					<a class="dos-button is-secondary" href="/editor">New draft</a>
 					<a class="dos-button" href="https://bsky.app/profile/landon.wtf" target="_blank" rel="noreferrer">
 						Bluesky
 					</a>
 				</div>
 			</div>
 			<div class="dos-terminal space-y-2">
-				<div class="text-xs uppercase tracking-[0.2em] text-[#62f2e8]">C:\LANDON\BOOT</div>
+				<div class="text-xs uppercase tracking-[0.2em] text-[var(--dos-accent)]">C:\LANDON\BOOT</div>
 				<div class="text-xs">Loading identity graph... OK</div>
 				<div class="text-xs">Mounting markdown volumes... OK</div>
 				<div class="text-xs">Spooling hypertext... OK</div>
@@ -64,7 +63,6 @@
 				<div class="text-xs uppercase tracking-[0.2em] text-[var(--dos-muted)]">Primary channels</div>
 				<div class="mt-2 flex flex-col gap-1 text-sm">
 					<a href="/posts">Post archive</a>
-					<a href="/editor">Markdown editor</a>
 					<a href="https://bsky.app/profile/landon.wtf" target="_blank" rel="noreferrer">Bluesky feed</a>
 				</div>
 			</div>
@@ -109,7 +107,7 @@
 			</div>
 		{:else}
 			<div class="dos-panel text-sm text-[var(--dos-muted)]">
-				No posts yet. Start a draft in the editor.
+				No posts yet. Add a markdown file at <code>src/routes/posts/&lt;slug&gt;/+page.md</code>.
 			</div>
 		{/if}
 	</div>

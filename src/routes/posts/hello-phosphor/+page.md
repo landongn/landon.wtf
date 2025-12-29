@@ -13,7 +13,7 @@ readingTime: 4 min read
 I wanted a home that feels like it booted off a floppy but speaks fluent modern web. This site is that mix: a retro shell over a markdown-first system.
 
 ## What this place is
-grrgrgrg
+
 - A slow feed of notes, essays, and experiments.
 - A mirror of the things I care about professionally and personally.
 - A front door that stays small, legible, and easy to maintain.

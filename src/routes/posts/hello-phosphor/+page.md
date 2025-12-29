@@ -26,4 +26,4 @@ Every post is a markdown file with frontmatter. Add a new folder under `src/rout
 
 I use Bluesky as the public identity anchor. This site is connected to that profile and references it as the main node for new updates.
 
-If you are reading this, welcome. If you are here from a mention, hello again.
+If you are reading this, welcome. If you are here from a mention, hello again. and if you want, here's one more. hello. 

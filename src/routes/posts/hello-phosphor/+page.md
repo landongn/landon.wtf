@@ -7,7 +7,7 @@ tags:
   - meta
   - identity
   - retro
-readingTime: 3 min read
+readingTime: 4 min read
 ---
 
 I wanted a home that feels like it booted off a floppy but speaks fluent modern web. This site is that mix: a retro shell over a markdown-first system.

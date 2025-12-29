@@ -17,7 +17,7 @@ I wanted a home that feels like it booted off a floppy but speaks fluent modern 
 - A slow feed of notes, essays, and experiments.
 - A mirror of the things I care about professionally and personally.
 - A front door that stays small, legible, and easy to maintain.
-
+sdfao;ihjszo;ijsdo;ij
 ## How it works
 
 Every post is a markdown file with frontmatter. Add a new folder under `src/routes/posts/` and drop in a `+page.md`. The site picks it up, builds a route, and the archive updates.
